@@ -72,37 +72,28 @@ public class Revisiones {
     }
 
     public Revision anadirHoras(Revision revision, int horas) throws TallerMecanicoExcepcion {
-        Objects.requireNonNull(revision, "No puedo operar sobre una revisión nula.");
-        Revision revisionEncontrada = buscar(revision);
-        if (revisionEncontrada == null) {
-            throw new TallerMecanicoExcepcion("No existe ninguna revisión igual.");
-        }
+        Revision revisionEncontrada = getRevision(revision);
         revisionEncontrada.anadirHoras(horas);
         return revisionEncontrada;
     }
 
-    private Revision getRevision(Revision revision) {
+    private Revision getRevision(Revision revision) throws TallerMecanicoExcepcion {
         Objects.requireNonNull(revision, "No se puede obtener una revisión nula.");
-        int indice = coleccionRevisiones.indexOf(revision);
-        return (indice == -1) ? null : coleccionRevisiones.get(indice);
-    }
-
-    public Revision anadirPrecioMaterial(Revision revision, float precioMaterial) throws TallerMecanicoExcepcion {
-        Objects.requireNonNull(revision, "No se puede añadir precio material a una revisión nula.");
         Revision revisionEncontrada = buscar(revision);
         if (revisionEncontrada == null) {
             throw new TallerMecanicoExcepcion("No existe ninguna revisión igual.");
         }
+        return revisionEncontrada;
+    }
+
+    public Revision anadirPrecioMaterial(Revision revision, float precioMaterial) throws TallerMecanicoExcepcion {
+        Revision revisionEncontrada = getRevision(revision);
         revisionEncontrada.anadirPrecioMaterial(precioMaterial);
         return revisionEncontrada;
     }
 
     public Revision cerrar(Revision revision, LocalDate fechaFin) throws TallerMecanicoExcepcion {
-        Objects.requireNonNull(revision, "No puedo operar sobre una revisión nula.");
-        Revision revisionEncontrada = buscar(revision);
-        if (revisionEncontrada == null) {
-            throw new TallerMecanicoExcepcion("No existe ninguna revisión igual.");
-        }
+        Revision revisionEncontrada = getRevision(revision);
         revisionEncontrada.cerrar(fechaFin);
         return revisionEncontrada;
     }

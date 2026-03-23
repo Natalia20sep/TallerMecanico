@@ -78,7 +78,7 @@ public class Revisiones {
     }
 
     private Revision getRevision(Revision revision) throws TallerMecanicoExcepcion {
-        Objects.requireNonNull(revision, "No se puede obtener una revisión nula.");
+        Objects.requireNonNull(revision, "No puedo operar sobre una revisión nula.");
         Revision revisionEncontrada = buscar(revision);
         if (revisionEncontrada == null) {
             throw new TallerMecanicoExcepcion("No existe ninguna revisión igual.");

@@ -30,7 +30,7 @@ public enum Opcion {
     private static final Map<Integer, Opcion> opciones = new HashMap<>();
 
     static {
-        for (Opcion opcion : Opcion.values()) {
+        for (Opcion opcion : values()) {
             opciones.put(opcion.numeroOpcion, opcion);
         }
     }
@@ -53,6 +53,6 @@ public enum Opcion {
 
     @Override
     public String toString() {
-        return numeroOpcion + ". " + mensaje;
+        return String.format("%d. %s", numeroOpcion, mensaje);
     }
 }

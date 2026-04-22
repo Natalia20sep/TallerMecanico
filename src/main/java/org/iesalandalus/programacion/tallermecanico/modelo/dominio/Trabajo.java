@@ -142,9 +142,5 @@ public abstract class Trabajo {
         return Objects.hash(cliente, vehiculo);
     }
 
-    @Override
-    public String toString() {
-        return String.format("%s - %s (%s - %s): %s horas", cliente.toString(), vehiculo.toString(), fechaInicio.format(FORMATO_FECHA), fechaFin == null ? "" : fechaFin.format(FORMATO_FECHA), getHoras());
-    }
 }
 

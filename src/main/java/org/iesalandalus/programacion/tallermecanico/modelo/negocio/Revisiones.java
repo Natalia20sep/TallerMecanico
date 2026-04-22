@@ -55,7 +55,7 @@ public class Revisiones {
         Objects.requireNonNull(vehiculo, "No se pueden comprobar las revisiones de un vehículo nulo.");
         Objects.requireNonNull(fechaRevision, "La fecha de revisión no puede ser nula.");
         for (Revision revision : coleccionRevisiones) {
-            if (!revision.estaCerrada()) {
+            if (!revision.estaCerrado()) {
                 if (revision.getCliente().equals(cliente)) {
                     throw new TallerMecanicoExcepcion("El cliente tiene otra revisión en curso.");
                 } else if (revision.getVehiculo().equals(vehiculo)) {
@@ -88,7 +88,6 @@ public class Revisiones {
 
     public Revision anadirPrecioMaterial(Revision revision, float precioMaterial) throws TallerMecanicoExcepcion {
         Revision revisionEncontrada = getRevision(revision);
-        revisionEncontrada.anadirPrecioMaterial(precioMaterial);
         return revisionEncontrada;
     }
 

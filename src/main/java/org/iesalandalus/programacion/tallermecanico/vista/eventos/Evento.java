@@ -1,9 +1,9 @@
-package org.iesalandalus.programacion.tallermecanico.vista;
+package org.iesalandalus.programacion.tallermecanico.vista.eventos;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public enum Opcion {
+public enum Evento {
     INSERTAR_CLIENTE(1, "Insertar cliente"),
     BUSCAR_CLIENTE(2, "Buscar cliente"),
     BORRAR_CLIENTE(3, "Borrar cliente"),
@@ -14,28 +14,29 @@ public enum Opcion {
     BORRAR_VEHICULO(8, "Borrar vehículo"),
     LISTAR_VEHICULOS(9, "Listar vehículos"),
     INSERTAR_REVISION(10, "Insertar revisión"),
-    BUSCAR_REVISION(11, "Buscar revisión"),
-    BORRAR_REVISION(12, "Borrar revisión"),
-    LISTAR_REVISIONES(13, "Listar revisiones"),
-    LISTAR_REVISIONES_CLIENTE(14, "Listar revisiones de un cliente"),
-    LISTAR_REVISIONES_VEHICULO(15, "Listar revisiones de un vehículo"),
-    ANADIR_HORAS_REVISION(16, "Añadir horas a una revisión"),
-    ANADIR_PRECIO_REVISION(17, "Añadir precio a una revisión"),
-    CERRAR_REVISION(18, "Cerrar revisión"),
-    SALIR(19, "Salir");
+    INSERTAR_MECANICO(11, "Insertar mecánico."),
+    BUSCAR_TRABAJO(12, "Buscar trabajo"),
+    BORRAR_TRABAJO(13, "Borrar trabajo"),
+    LISTAR_TRABAJOS(14, "Listar trabajos"),
+    LISTAR_TRABAJOS_CLIENTE(15, "Listar trabajos de un cliente"),
+    LISTAR_TRABAJOS_VEHICULO(16, "Listar trabajos de un vehículo"),
+    ANADIR_HORAS_TRABAJO(17, "Añadir horas a un trabajo"),
+    ANADIR_PRECIO_MATERIAL_TRABAJO(18, "Añadir precio material a un trabajo"),
+    CERRAR_TRABAJO(19, "Cerrar trabajo"),
+    SALIR(20, "Salir");
 
-    private int numeroOpcion;
-    private String mensaje;
+    private final int numeroOpcion;
+    private final String mensaje;
 
-    private static final Map<Integer, Opcion> opciones = new HashMap<>();
+    private static final Map<Integer, Evento> opciones = new HashMap<>();
 
     static {
-        for (Opcion opcion : values()) {
+        for (Evento opcion : values()) {
             opciones.put(opcion.numeroOpcion, opcion);
         }
     }
 
-    private Opcion(int numeroOpcion, String mensaje) {
+    private Evento(int numeroOpcion, String mensaje) {
         this.numeroOpcion = numeroOpcion;
         this.mensaje = mensaje;
     }
@@ -44,7 +45,7 @@ public enum Opcion {
         return opciones.containsKey(numeroOpcion);
     }
 
-    public static Opcion get(int numeroOpcion) {
+    public static Evento get(int numeroOpcion) {
         if (!esValida(numeroOpcion)) {
             throw new IllegalArgumentException("Número de opción no válido: " + numeroOpcion);
         }

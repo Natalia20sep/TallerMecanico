@@ -5,16 +5,16 @@ import org.iesalandalus.programacion.tallermecanico.modelo.TallerMecanicoExcepci
 import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Cliente;
 import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Revision;
 import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Vehiculo;
-import org.iesalandalus.programacion.tallermecanico.vista.Vista;
+import org.iesalandalus.programacion.tallermecanico.vista.texto.VistaTexto;
 
 import java.util.List;
 import java.util.Objects;
 
 public class Controlador {
     private final Modelo modelo;
-    private final Vista vista;
+    private final VistaTexto vista;
 
-    public Controlador(Modelo modelo, Vista vista) {
+    public Controlador(org.iesalandalus.programacion.tallermecanico.modelo.Modelo modelo, VistaTexto vista) {
         Objects.requireNonNull(modelo, "El modelo no puede ser nulo.");
         Objects.requireNonNull(vista, "La vista no puede ser nula.");
         this.modelo = modelo;
@@ -81,7 +81,7 @@ public class Controlador {
         return modelo.getVehiculos();
     }
     public List<Revision> getRevisiones() {
-        return modelo.getRevisiones();
+        return modelo.getTrabajos();
     }
 
     public List<Revision> getRevisiones(Cliente cliente) {

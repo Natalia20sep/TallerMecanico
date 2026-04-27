@@ -28,28 +28,7 @@ public class VistaTexto implements org.iesalandalus.programacion.tallermecanico.
 
    private void ejecutar(Evento opcion) {
        try {
-           switch (opcion) {
-               case INSERTAR_CLIENTE -> gestorEventos.notificar(Evento.INSERTAR_CLIENTE);
-               case BUSCAR_CLIENTE -> gestorEventos.notificar(Evento.BUSCAR_CLIENTE);
-               case BORRAR_CLIENTE -> gestorEventos.notificar(Evento.BORRAR_CLIENTE);
-               case LISTAR_CLIENTES -> gestorEventos.notificar(Evento.LISTAR_CLIENTES);
-               case MODIFICAR_CLIENTE -> gestorEventos.notificar(Evento.MODIFICAR_CLIENTE);
-               case INSERTAR_VEHICULO -> gestorEventos.notificar(Evento.INSERTAR_VEHICULO);
-               case BUSCAR_VEHICULO -> gestorEventos.notificar(Evento.BUSCAR_VEHICULO);
-               case BORRAR_VEHICULO -> gestorEventos.notificar(Evento.BORRAR_VEHICULO);
-               case LISTAR_VEHICULOS ->gestorEventos.notificar(Evento.LISTAR_VEHICULOS);
-               case INSERTAR_REVISION -> gestorEventos.notificar(Evento.INSERTAR_REVISION);
-               case INSERTAR_MECANICO -> gestorEventos.notificar(Evento.INSERTAR_MECANICO);
-               case BUSCAR_TRABAJO -> gestorEventos.notificar(Evento.BUSCAR_TRABAJO);
-               case BORRAR_TRABAJO -> gestorEventos.notificar(Evento.BORRAR_TRABAJO);
-               case LISTAR_TRABAJOS -> gestorEventos.notificar(Evento.LISTAR_TRABAJOS);
-               case LISTAR_TRABAJOS_CLIENTE -> gestorEventos.notificar(Evento.LISTAR_TRABAJOS_CLIENTE);
-               case LISTAR_TRABAJOS_VEHICULO -> gestorEventos.notificar(Evento.LISTAR_TRABAJOS_VEHICULO);
-               case ANADIR_HORAS_TRABAJO -> gestorEventos.notificar(Evento.ANADIR_HORAS_TRABAJO);
-               case ANADIR_PRECIO_MATERIAL_TRABAJO -> gestorEventos.notificar(Evento.ANADIR_PRECIO_MATERIAL_TRABAJO);
-               case CERRAR_TRABAJO -> gestorEventos.notificar(Evento.CERRAR_TRABAJO);
-               case SALIR -> gestorEventos.notificar(Evento.SALIR);
-           }
+           gestorEventos.notificar(opcion);
        } catch (Exception e) {
            System.out.printf("Error: %s%n", e.getMessage());
        }

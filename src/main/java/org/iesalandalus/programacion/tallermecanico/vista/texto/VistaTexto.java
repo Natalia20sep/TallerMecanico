@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class VistaTexto implements org.iesalandalus.programacion.tallermecanico.vista.Vista {
-    private GestorEventos gestorEventos;
+    private GestorEventos gestorEventos = new GestorEventos(Evento.values());
 
     @Override
     public GestorEventos getGestorEventos() {

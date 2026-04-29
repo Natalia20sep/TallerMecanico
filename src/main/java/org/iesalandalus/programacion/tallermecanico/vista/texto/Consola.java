@@ -1,8 +1,5 @@
 package org.iesalandalus.programacion.tallermecanico.vista.texto;
 
-import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Cliente;
-import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Revision;
-import org.iesalandalus.programacion.tallermecanico.modelo.dominio.Vehiculo;
 import org.iesalandalus.programacion.tallermecanico.vista.eventos.Evento;
 import org.iesalandalus.programacion.utilidades.Entrada;
 
@@ -32,8 +29,7 @@ public class Consola {
         Evento opcion = null;
         do {
             try {
-                mostrarMenu();
-                System.out.println("Escoja una de las siguientes acciones a realizar (Escribe el número de comando).");
+                System.out.print("Escoja una de las siguientes acciones a realizar (Escribe el número de comando): ");
                 opcion = Evento.get(Entrada.entero());
             } catch (IllegalArgumentException iae) {
                 System.out.println("Opción no válida. Inténtalo de nuevo.");
@@ -61,7 +57,7 @@ public class Consola {
         LocalDate fechaInicial = null;
         DateTimeFormatter formato = DateTimeFormatter.ofPattern(CADENA_FORMATO_FECHA);
         do {
-            System.out.println(mensaje);
+            System.out.print(mensaje);
             String fecha = Entrada.cadena();
             try {
                 fechaInicial = LocalDate.parse(fecha, formato);

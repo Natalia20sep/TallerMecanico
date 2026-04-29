@@ -132,15 +132,13 @@ public abstract class Trabajo {
 
     @Override
     public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        Trabajo trabajo = (Trabajo) o;
-        return Objects.equals(cliente, trabajo.cliente) && Objects.equals(vehiculo, trabajo.vehiculo);
+        if (!(o instanceof Trabajo trabajo)) return false;
+        return Objects.equals(fechaInicio, trabajo.fechaInicio) && Objects.equals(cliente, trabajo.cliente) && Objects.equals(vehiculo, trabajo.vehiculo);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(cliente, vehiculo);
+        return Objects.hash(fechaInicio, cliente, vehiculo);
     }
-
 }
 

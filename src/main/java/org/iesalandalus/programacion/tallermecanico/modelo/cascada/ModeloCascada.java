@@ -114,6 +114,7 @@ public class ModeloCascada implements Modelo {
             trabajos.borrar(trabajo);
         }
         vehiculos.borrar(vehiculo);
+
     }
 
     @Override

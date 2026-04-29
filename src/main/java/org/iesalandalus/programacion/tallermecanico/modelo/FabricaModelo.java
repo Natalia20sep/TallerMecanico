@@ -7,11 +7,11 @@ public enum FabricaModelo {
 
     CASCADA {
             @Override
-            Modelo crear(FabricaFuenteDatos fabricaFuenteDatos) {
+            public Modelo crear(FabricaFuenteDatos fabricaFuenteDatos) {
                 return new ModeloCascada(fabricaFuenteDatos);
             }
     };
 
-    abstract Modelo crear(FabricaFuenteDatos fabricaFuenteDatos);
+    public abstract Modelo crear(FabricaFuenteDatos fabricaFuenteDatos);
 
 }

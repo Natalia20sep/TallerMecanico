@@ -7,8 +7,6 @@ import org.iesalandalus.programacion.tallermecanico.vista.FabricaVista;
 import org.iesalandalus.programacion.tallermecanico.vista.Vista;
 import org.iesalandalus.programacion.tallermecanico.vista.eventos.Evento;
 
-
-
 import java.util.Objects;
 
 public class Controlador implements IControlador {
@@ -113,6 +111,11 @@ public class Controlador implements IControlador {
                 case CERRAR_TRABAJO -> {
                     modelo.cerrar(vista.leerTrabajoVehiculo(), vista.leerFechaCierre());
                     vista.notificarResultado(Evento.CERRAR_TRABAJO,"Trabajo cerrado correctamente.", true);
+                }
+
+                case MOSTRAR_ESTADISTICAS_MENSUALES -> {
+                    vista.mostrarEstadisticasMensuales(modelo.getEstadisticasMensuales(vista.leerMes()));
+                    vista.notificarResultado(Evento.MOSTRAR_ESTADISTICAS_MENSUALES,"Estadísticas mensuales mostradas correctamente.", true);
                 }
                 case SALIR -> terminar();
             }

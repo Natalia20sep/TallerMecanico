@@ -23,7 +23,8 @@ public enum Evento {
     ANADIR_HORAS_TRABAJO(17, "Añadir horas a un trabajo"),
     ANADIR_PRECIO_MATERIAL_TRABAJO(18, "Añadir precio material a un trabajo"),
     CERRAR_TRABAJO(19, "Cerrar trabajo"),
-    SALIR(20, "Salir");
+    MOSTRAR_ESTADISTICAS_MENSUALES(20, "Mostrar estadísticas mensuales"),
+    SALIR(21, "Salir");
 
     private final int numeroOpcion;
     private final String mensaje;

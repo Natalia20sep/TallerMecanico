@@ -8,6 +8,7 @@ import org.iesalandalus.programacion.tallermecanico.modelo.negocio.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 public class ModeloCascada implements Modelo {
@@ -26,7 +27,10 @@ public class ModeloCascada implements Modelo {
 
     @Override
     public void comenzar() {
-        System.out.println("Modelo comenzado.");
+//        clientes.comenzar();
+//        trabajos.comenzar();
+//        vehiculos.comenzar();
+        System.out.println("Modelo comenzado, xoxo.");
     }
 
     @Override
@@ -161,5 +165,10 @@ public class ModeloCascada implements Modelo {
             trabajosVehiculo.add(Trabajo.copiar(Trabajo.get(vehiculo)));
         }
         return trabajosVehiculo;
+    }
+
+    @Override
+    public Map<TipoTrabajo, Integer> getEstadisticasMensuales(LocalDate mes) {
+        return trabajos.getEstadisticasMensuales(mes);
     }
 }

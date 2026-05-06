@@ -1,10 +1,12 @@
 package org.iesalandalus.programacion.tallermecanico.vista.texto;
 
 import org.iesalandalus.programacion.tallermecanico.modelo.dominio.*;
+import org.iesalandalus.programacion.tallermecanico.modelo.negocio.ficheros.Trabajos;
 import org.iesalandalus.programacion.tallermecanico.vista.eventos.Evento;
 import org.iesalandalus.programacion.tallermecanico.vista.eventos.GestorEventos;
 
 import java.time.LocalDate;
+import java.util.Comparator;
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
@@ -168,6 +170,8 @@ public class VistaTexto implements org.iesalandalus.programacion.tallermecanico.
             System.out.println("No hay clientes para mostrar.");
         } else {
             System.out.println("Lista de clientes:");
+            Comparator<Cliente> comparador = Comparator.comparing(Cliente::getNombre).thenComparing(Cliente::getDni);
+            clientes.sort(comparador);
             for (Cliente cliente : clientes) {
                 System.out.println(cliente);
             }
@@ -180,6 +184,8 @@ public class VistaTexto implements org.iesalandalus.programacion.tallermecanico.
             System.out.println("No hay vehículos para mostrar.");
         } else {
             System.out.println("Lista de vehículos:");
+            Comparator<Vehiculo> comparador = Comparator.comparing(Vehiculo::marca).thenComparing(Vehiculo::modelo).thenComparing(Vehiculo::matricula);
+            vehiculos.sort(comparador);
             for (Vehiculo vehiculo : vehiculos) {
                 System.out.println(vehiculo);
             }
@@ -192,6 +198,8 @@ public class VistaTexto implements org.iesalandalus.programacion.tallermecanico.
             System.out.println("No hay trabajos para mostrar.");
         } else {
             System.out.println("Lista de trabajos:");
+            Comparator<Trabajo> comparador = Comparator.comparing(Trabajo::getFechaInicio).thenComparing(trabajo -> trabajo.getCliente().getDni()).thenComparing(trabajo -> trabajo.getVehiculo().matricula());
+            trabajos.sort(comparador);
             for (Trabajo trabajo : trabajos) {
                 System.out.println(trabajo);
             }

@@ -10,6 +10,7 @@ import java.util.Objects;
 public class Vehiculos implements org.iesalandalus.programacion.tallermecanico.modelo.negocio.IVehiculos {
 
     private final List<Vehiculo> coleccionVehiculos;
+    private Vehiculos instancia;
 
     public Vehiculos() {
         coleccionVehiculos = new ArrayList<>();
@@ -18,6 +19,10 @@ public class Vehiculos implements org.iesalandalus.programacion.tallermecanico.m
     @Override
     public List<Vehiculo> get() {
         return new ArrayList<>(coleccionVehiculos);
+    }
+
+    Vehiculos getInstancia() {
+        return new Vehiculos();
     }
 
     @Override

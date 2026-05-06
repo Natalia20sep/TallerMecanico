@@ -25,6 +25,7 @@ public class Trabajos implements ITrabajos {
     private static final String MECANICO = "Mecanico";
     private static final String REVISION = "Revision";
 
+    private Trabajos instancia;
     private final List<Trabajo> coleccionTrabajos;
 
     private Trabajos() {

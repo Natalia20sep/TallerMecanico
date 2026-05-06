@@ -10,10 +10,26 @@ import java.util.Objects;
 
 public class Clientes implements IClientes {
 
+    private static final String FICHERO_CLIENTES = "datos/clientes.json";
+    private static final String RAIZ = "Clientes";
+    private static final String CLIENTE = "Cliente";
+    private static final String NOMBRE = "Nombre";
+    private static final String DNI = "DNI";
+    private static final String TELEFONO = "Teléfono";
+
     private final List<Cliente> coleccionClientes;
+    private Clientes instancia;
 
     public Clientes() {
         coleccionClientes = new ArrayList<>();
+    }
+
+    Clientes getInstancia() {
+         return  new Clientes();
+    }
+
+    public void comenzar() {
+
     }
 
     @Override
